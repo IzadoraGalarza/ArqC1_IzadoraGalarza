@@ -18,7 +18,7 @@ input b );
 // definir dado local
 wire not_a;
 // descrever por portas
-not NOT1 ( not_a, a );
+not NOT1 ( not_a, a ); 
 and AND1 ( s, not_a, b );
 endmodule // f5a
 // -------------------------

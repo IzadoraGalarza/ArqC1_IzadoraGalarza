@@ -1,0 +1,83 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002338f60a0e0 .scope module, "guia_0507" "guia_0507" 2 28;
+ .timescale 0 0;
+v000002338f4d4750_0 .net "a", 0 0, L_000002338f4a2620;  1 drivers
+v000002338f4d42f0_0 .net "b", 0 0, L_000002338f4d51b0;  1 drivers
+v000002338f4d49d0_0 .var "x", 0 0;
+v000002338f4d4430_0 .var "y", 0 0;
+S_000002338f60c800 .scope begin, "main" "main" 2 36, 2 36 0, S_000002338f60a0e0;
+ .timescale 0 0;
+S_000002338f60c990 .scope module, "moduleA" "f5a" 2 32, 2 8 0, S_000002338f60a0e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+L_000002338f4d6990 .functor NOR 1, v000002338f4d49d0_0, v000002338f4d4430_0, C4<0>, C4<0>;
+L_000002338f4a2ad0 .functor NOR 1, L_000002338f4d6990, L_000002338f4d6990, C4<0>, C4<0>;
+L_000002338f4a2620 .functor NOR 1, L_000002338f4a2ad0, L_000002338f4a2ad0, C4<0>, C4<0>;
+v000002338f4a2cd0_0 .net "a", 0 0, v000002338f4d49d0_0;  1 drivers
+v000002338f4a2ef0_0 .net "and1", 0 0, L_000002338f4d6990;  1 drivers
+v000002338f60cb20_0 .net "and2", 0 0, L_000002338f4a2ad0;  1 drivers
+v000002338f60cbc0_0 .net "b", 0 0, v000002338f4d4430_0;  1 drivers
+v000002338f60a4c0_0 .net "s", 0 0, L_000002338f4a2620;  alias, 1 drivers
+S_000002338f4a2490 .scope module, "moduleB" "f5b" 2 33, 2 20 0, S_000002338f60a0e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+L_000002338f4a2690 .functor NOT 1, v000002338f4d49d0_0, C4<0>, C4<0>, C4<0>;
+L_000002338f4a2790 .functor NOT 1, v000002338f4d4430_0, C4<0>, C4<0>, C4<0>;
+L_000002338f4a2890 .functor AND 1, L_000002338f4a2690, L_000002338f4a2790, C4<1>, C4<1>;
+L_000002338f4d51b0 .functor NOT 1, L_000002338f4a2890, C4<0>, C4<0>, C4<0>;
+v000002338f60a560_0 .net *"_ivl_0", 0 0, L_000002338f4a2690;  1 drivers
+v000002338f60ab80_0 .net *"_ivl_2", 0 0, L_000002338f4a2790;  1 drivers
+v000002338f60ac20_0 .net *"_ivl_4", 0 0, L_000002338f4a2890;  1 drivers
+v000002338f60ae60_0 .net "a", 0 0, v000002338f4d49d0_0;  alias, 1 drivers
+v000002338f60af00_0 .net "b", 0 0, v000002338f4d4430_0;  alias, 1 drivers
+v000002338f4d4250_0 .net "s", 0 0, L_000002338f4d51b0;  alias, 1 drivers
+    .scope S_000002338f60a0e0;
+T_0 ;
+    %fork t_1, S_000002338f60c800;
+    %jmp t_0;
+    .scope S_000002338f60c800;
+t_1 ;
+    %vpi_call 2 37 "$display", "Guia_0507 - Izadora Galarza Alves - 866053" {0 0 0};
+    %vpi_call 2 38 "$display", " x  y  a  b" {0 0 0};
+    %vpi_call 2 39 "$monitor", "%4b %4b %4b %4b", v000002338f4d49d0_0, v000002338f4d4430_0, v000002338f4d4750_0, v000002338f4d42f0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002338f4d49d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002338f4d4430_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002338f4d49d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002338f4d4430_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002338f4d49d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002338f4d4430_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002338f4d49d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002338f4d4430_0, 0, 1;
+    %end;
+    .scope S_000002338f60a0e0;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "guia_0507.v";
